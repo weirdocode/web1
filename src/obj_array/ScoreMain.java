@@ -1,5 +1,7 @@
 package obj_array;
 
+import java.util.Scanner;
+
 public class ScoreMain {
 
 	public static void main(String[] args) {
@@ -22,7 +24,54 @@ public class ScoreMain {
 		 
 		 */
 		
+		Score[] scores = new Score[100];
+		Scanner sc = new Scanner(System.in);
 		
+		for(int i=0; i<scores.length; i++) {
+			System.out.println("***학생 점수 입력 프로그램 ***");
+			System.out.println("'그만'을 입력하시면 종료됩니다");
+			
+			System.out.print("이름: ");
+			String name = sc.next();
+			if(name.equals("그만")) {
+				System.out.println("입력을 종료합니다.");
+				break;
+			}
+			
+			System.out.print("국어: ");
+			int kor = sc.nextInt();
+			System.out.print("영어: ");
+			int eng = sc.nextInt();
+			System.out.print("수학: ");
+			int math = sc.nextInt();
+			
+			
+			
+			/*
+			int total = kor + eng + math;
+			double avg = total / 3.0;
+			
+			scores[i] = new Score(name, kor, eng, math, total, avg);
+			*/
+			
+			Score s = new Score();
+			s.setName(name); s.setKor(kor); s.setEng(eng);
+			s.setMath(math); s.setTotal(); s.setAverage();
+			scores[i] = s;
+			
+			
+			
+			
+		} // 입력 반복문
+		
+		for(Score s : scores) {
+			if(s == null) break; //null이 들어오는 것을 막아줌 , 안그러면 에러
+			s.scoreInfo();
+			System.out.println("\n----------------------------");
+			
+		}
+		
+		sc.close();
 	}
 
 }

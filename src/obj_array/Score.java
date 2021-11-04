@@ -19,14 +19,64 @@ public class Score {
 	private int eng;
 	private int math;
 	private int total;
-	private double avg;
+	private double average;
 	
-	Score(){}
+	public Score() {}
+	
+	public Score(String name, int kor, int eng, int math, int total, double average) {
+		super();
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.total = total;
+		this.average = average;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getKor() {
+		return kor;
+	}
+	public void setKor(int kor) {
+		this.kor = kor;
+	}
+	public int getEng() {
+		return eng;
+	}
+	public void setEng(int eng) {
+		this.eng = eng;
+	}
+	public int getMath() {
+		return math;
+	}
+	public void setMath(int math) {
+		this.math = math;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal() {
+		this.total = kor + eng + math;
+	}
+	public double getAverage() {
+		return average;
+	}
+	public void setAverage() {
+		this.average = total / 3.0;
+	}
+
+
+	public void scoreInfo() {
+		System.out.printf("이름: %s 국어: %d점 수학: %d점 영어: %d점\n총점: %d점 \n평균: %.2f점 "
+				,name , kor, eng, math, total, average );
 	
 	
-	void scoreInfo(){
-		System.out.println("이름: " + name);
-		System.out.println("국어 점수: " + kor);
+
 		
 		
 	}
