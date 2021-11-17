@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 웹표준 둘째날</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background: red;
+            animation: box 2s cubic-bezier(1,-1.24,.26,1.84) infinite normal;
+        }
+
+        @keyframes box {
+            0% {
+                position: absolute;
+                /* 브라우저를 기준값으로 좌표값을 가진다. */
+                top:0;
+                left:0;
+            }
+
+            25% {
+                position: absolute;
+                top: 0;
+                left: 500px;
+            }
+
+            50% {
+                position: absolute;
+                top: 500px;
+                left: 500px;
+            }
+
+            75% {
+                position: absolute;
+                top: 500px;
+                left: 0;
+            }
+
+            100% {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div></div>
+</body>
+</html>

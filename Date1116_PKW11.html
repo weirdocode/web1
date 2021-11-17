@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 웹표준 둘째날</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background:#333;
+        }
+        .cls001 {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cls001 > li {
+            width: 140px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            /* opacity:0; */
+            background:dodgerblue;
+            text-align: center;
+            color: white;
+            border: 1px solid black;
+            
+        }
+
+        .cls001 li ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cls001 li li {
+            width: 140px;
+            height: 0px;
+            opacity: 0;
+            font-size: 0;
+            line-height: 30px;
+            background:dodgerblue;
+            text-align: center;
+            border: 1px solid black;
+            margin-left: -1px;
+            transition: 0.4s;
+        }
+
+        .cls001 li:hover li {
+            font-size: 13px;
+            height: 30px;
+            opacity: 1;     
+        }
+    </style>
+</head>
+<body>
+   <ul class="cls001">
+       <li>FRONT-END
+           <ul>
+               <li>JAVA</li>
+               <li>CSS</li>
+               <li>jQuery</li>
+           </ul>
+       </li>
+   </ul>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 웹표준 둘째날</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: #333;
+        }
+       .cls001 {
+           list-style: none;
+           margin: 0;
+           padding: 0;
+       }
+       .cls001 > li {
+           width: 140px;
+           height: 30px;
+           line-height: 30px;
+           font-size: 14px;
+           /* opacity: 0; */
+           background: dodgerblue;
+           text-align: center;
+           color: white;
+           
+       }
+       .cls001 li ul {
+           list-style: none;
+           margin: 0;
+           padding: 0;
+       }
+       .cls001 li li {
+           width: 140px;
+           height: 0px;
+           opacity: 0;
+           font-size: 0;
+           line-height: 30px;
+           background: dodgerblue;
+           text-align: center;
+           color: white;
+           border: 1px solid black;
+           margin-left: -1px;
+           transition: 0.4s;
+           
+       }
+       .cls001 li:hover li {
+           font-size: 13px;
+           height: 30px;
+           opacity: 1;
+       }
+
+    </style>
+</head>
+<body>
+    <ul class="cls001">
+        <li>FRONT-END
+            <ul>
+                <li>JAVA</li>
+                <li>CSS</li>
+                <li>jQuery</li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>
+
+<!-- 
+semantic 태그 시멘틱태그 : 의미가 통하는, 의미가 부여되는
+header태그 : 상단부분
+nav : 메뉴
+section article 태그 : 본문에 삽입되어지는 부분에 적용되는 태그
+aside : 오른쪽이나 왼쪽에 혹은 아래에 배치되어 있을 수 있습니다.
+footer : 하단부분
+address : 주소부분
+
+섹션:
+
+아티클:
+
+section > article
+-------------------------------------
+인터넷 익스플로러
+
+브라우저 접두사, 벤더 프리픽스, 프리픽스
+
+1.최신모던브라우저 527점
+
+2.모던브라우저 - 업데이트가 안됩니다. (크롬, 파이어폭스) 410점
+
+3.구형브라우저 (MS IE)
+
+-webkit-linear-gradient 리니어 그레디언트
+(크롬, 사파리)
+
+-moz- 모질라 파이어폭스
+
+-o- 오페라
+
+-ms- 인터넷 익스플로러
+
+ -->
