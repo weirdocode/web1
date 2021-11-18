@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 웹표준 셋째날</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 100px;
+
+        }
+        p {
+            width: 250px;
+            height: 220px;
+            border: 1px solid black;
+        }
+        p:before {
+            content: "";
+            display: block;
+            clear: both;
+            width: 200px;
+            height: 2px;
+            background: red;
+        }
+        p:after {
+            content: "";
+            display: block;
+            clear: both;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: orangered;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, accusantium? Expedita inventore odit facere quasi atque culpa aliquid maxime id maiores delectus ipsa similique, aperiam at, error dolore cum iure.</p>
+
+
+</body>
+</html>
+
+<!--
+이미지맵 : 맵링크 >> 하나의 이미지에 여러개의 링크를 거는
+ 테크닉 또는 태그의 기법
+ -------------------------------
+
+ max-width: ~이하의 픽셀에 적용
+ min-width: ~아상의 픽셀에 적용
+
+ 반응형 웹
+
+ 장점
+ 1.제작 비용이 적게 든다.
+ 2.유지관리가 용이하다.
+ 3.소스 수정이 용이하다.
+
+ 웹따로 모바일따로
+ 1.콘텐츠가 방대한 사이트의 경우 반응형 웹으로는 만들 수 없다.
+ 2.유지관리하는데 어렵고 비용도 많이든다.
+ 3.소스 수정이 어렵다.
+
+ <디스플레이 포지션 float 가상요소 -4가지>
+
+ 가상요소 
+ :before
+ :after
+
+-->
