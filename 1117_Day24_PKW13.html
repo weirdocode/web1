@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #box_wrap {
+        width: 300px;
+        height: 200px;
+        margin: 50px auto 0;
+        position: relative;
+        background: #ccc;
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50px;
+        left: 100px;
+        background: red;
+    }
+</style>
+</head>
+<body>
+  <div id="box_wrap">
+      <p class="box">박스</p>
+  </div>
+
+  <p class="txt_1">절대 top위치값: <span></span></p>
+  <p class="txt_2">상대 top위치값: <span></span></p>
+<script>
+    $(function(){
+        var $txt1 = $(".txt_1 span"),
+            $txt2 = $(".txt_2 span"),
+            $box = $(".box");
+
+        var off_t =$box.offset().top;
+        var pos_t =$box.position().top;
+
+        $txt1.text(off_t);
+        $txt2.text(pos_t);
+    });
+</script>
+</body>
+</html>

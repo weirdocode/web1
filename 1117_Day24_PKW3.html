@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 웹표준 금요일</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #banner {
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            background: red;
+            position: relative;
+        }
+
+        button {
+            position: absolute;
+            right: 2%;
+            top: 10%;
+            background: #8ac007;
+        }
+
+        
+    </style>
+</head>
+<body>
+   <div id="banner">
+       <button>X</button>
+       <h1>광고배너</h1>
+   </div> 
+   <script>
+      $(function(){
+        $("button").click(function(){
+            $("#banner").hide();
+        });
+      });
+      
+
+   </script>
+   
+</body>
+</html>

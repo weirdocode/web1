@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    li {
+        margin-bottom: 2px;
+    }
+</style>
+</head>
+<body>
+  <h1>인접 관계 선택자</h1>
+  <ul id="menu">
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+      <li>내용4</li>
+      <li>내용5</li>
+  </ul>
+  <ul>
+      <li>내용6</li>
+      <li>내용7</li>
+  </ul>
+<script>
+   $(function(){
+    $("li:last-of-type")
+    .css({border:"2px dashed red"});   
+   }); 
+</script>
+</body>
+</html>

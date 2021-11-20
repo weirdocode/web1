@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .aqua {
+        background:aqua;
+    }    
+
+    .red {
+        background: #f00;
+    }
+
+    .green {
+        background: #0f0;
+    }
+
+    .yellow {
+        background: #ff0;
+    }
+</style>
+</head>
+<body>
+  <P id="p1">내용1</P>
+  <P id="p2" class="red">내용2</P>
+  <P id="p3">내용3</P>
+  <P id="p4" class="green">내용4</P>
+  <P id="p5">내용5</P>
+  <P id="p6" class="yellow">내용6</P>
+  <button id="btn1">버튼</button>
+<script>
+      $(function(){
+        $("#btn1").click(function(){  
+        $("#p1").addClass("aqua");
+        $("#p2").removeClass("red");
+        $("#p3").toggleClass("green");
+        $("#p4").toggleClass("green");
+        });
+      });
+</script>
+</body>
+</html>

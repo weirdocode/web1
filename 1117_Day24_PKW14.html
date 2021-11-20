@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    
+</style>
+</head>
+<body>
+  <p>
+      <button class="btn1">버튼1</button>
+  </p>
+  <p>내용1</p>
+  <p>
+    <button class="btn2">버튼2</button>
+</p>
+<p>내용2</p>
+<script>
+
+$(function(){
+    $(".btn1").click(function(){
+        $(".btn1").parent().next()
+        .css({"color":"#f00"})
+    });
+
+    $(".btn2").on({
+        "mouseover focus": function(){
+        $(".btn2").parent().next().css({"color":"green"});
+        },
+
+        "mouseout blur": function(){
+        $(".btn2").parent().next().css({"color":"black"});
+        },
+        
+        
+    });
+});
+    // 버튼2를 마우스오버했을때 부모의 다음요소의 폰트컬러값을 그린색상으로
+    // 변경하고, 또 마우스아웃했을때 부모의 다음요소의 폰트컬러값을 검정색
+    // 으로 변경해 주세요...
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 웹표준 금요일</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+                
+    </style>
+    <script>
+        var color = ["white", "yellow", "aqua", "purple"];
+
+        var i = 0;
+        function changeColor(){
+            i++;
+
+            if(i >=color.length) {
+            i = 0;    
+           }
+
+           var bodyTag = document.getElementById("theBody");
+           bodyTag.style.backgroundColor = color[i];
+        }
+    </script>
+</head>
+<body id="theBody">
+  <button onclick="changeColor()">배경색 바꾸기</button>    
+</body>
+
+</html>
