@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLE</title>
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <style>
+        
+    </style>
+    
+
+</head>
+<body>
+    <script>
+       var id="bbkjh";
+       var pw ="1234";
+
+       var user_id=prompt("당신의 아이디는?");
+       var user_pw=prompt("당신의 패스워드는?");
+
+       if(id == user_id) {
+           if(pw == user_pw) {
+            document.write(user_id + "님 반갑습니다.");
+           } else {
+               alert("비밀번호가 일치하지 않아요");
+               location.reload();
+           }          
+       } else {
+           alert("아이디가 일치하지 않아요");
+           location.reload();
+       }
+    </script>
+    
+</body>
+</html>

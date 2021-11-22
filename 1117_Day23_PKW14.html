@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLE</title>
+    <script src="https://kit.fontawesome.com/9448297042.js" crossorigin="anonymous"></script>
+    <style>
+        
+    </style>
+    
+
+</head>
+<body>
+    <script>
+       var site = prompt("네이버, 애플, 구글, 다음 중 즐겨찾는 사이트는?");
+
+       var url;
+
+       switch(site){
+           case "구글":url="www.google.com";
+           break;
+
+           case "애플":url="www.apple.com";
+           break;
+
+           case "네이버":url="www.naver.com";
+           break;
+
+           case "다음":url="www.daum.net";
+           break;
+           default: alert("보기 중에 없는 사이트입니다.");
+           location.reload();
+       }
+
+       if(url) location.href = "http://" + url;
+    </script>
+    
+</body>
+</html>
