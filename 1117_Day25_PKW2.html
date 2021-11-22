@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(function(){
+        var baseFontSize = 14;
+        $(".zoomBtnZone button").on("click", zoomInOut);
+
+        function zoomInOut(){
+            if($(this).hasClass("zoomOutBtn")) {
+                if(baseFontSize <= 8) return false;
+                baseFontSize--;
+            } else if($(this).hasClass("zoomInBtn")){
+                if(baseFontSize>=20) return false;
+                baseFontSize++
+            } else {
+                baseFontSize = 14;
+            }
+            $(".fontSize").text(baseFontSize + "px");
+            $("body").css({fontSize:baseFontSize + "px"});
+             
+        }
+      });  
+    </script>    
+    <style>
+        body {
+            font-size:14px;
+            font-family: "맑은고딕";
+        }
+
+        .zoomBtnZone {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <p class="zoomBtnZone">
+        <button class="zoomOutBtn">-</button>
+        <button class="originBtn">100%</button>
+        <button class="zoomInBtn">+</button>
+    </p>
+    <p class="fontSize">14px</p>
+    <div id="wrap">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, repellat deleniti neque tempora, placeat dignissimos aliquam voluptatibus dolor, adipisci quisquam culpa? Nostrum totam cumque saepe fugit consectetur in neque doloremque?
+    </div>
+</body>
+</html>

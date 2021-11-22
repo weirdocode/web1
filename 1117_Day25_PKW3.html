@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        
+    </script>    
+    <style>
+        body {
+            margin: 20px;
+            padding: 20px;
+            background: #f1f1f1;
+            color: #555;
+        }
+
+        button {
+            position: relative;
+            padding: 5px 15px;
+            background: #ccc;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.5s;
+        }
+
+        button:hover {
+            background: #888;
+        }
+
+        .container {
+            margin-top: 35px;
+        }
+
+        img[alt=lion] {
+            display: block;
+            margin-top: 50px;
+            width: 240px;
+            height: 240px;
+            transition: 0.4s;
+
+        }
+    </style>
+    <script>
+        $(function(){
+            var y = 50;
+
+            $("#top").click(function(){
+                y= y-100;
+
+                $(".lion").css({marginTop:y});
+            });
+
+            $("#bottom").click(function(){
+                y= y+100;
+
+                $(".lion").css({marginTop:y});
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <button id="top">top</button>
+        <button id="bottom">bottom</button>
+        <img src="lion.gif" alt="lion" class="lion"> 
+    </div>
+</body>
+</html>

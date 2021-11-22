@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <script>
+        var arr_1 = ["사당", "교대", "방배", "강남"];
+        var arr_2 = ["신사", "압구정", "옥수"];
+
+        var result = arr_1.join("-");
+        document.write(result + "<br>");
+
+        result = arr_1.concat(arr_2);
+        document.write(result + "<br>");
+
+        arr_1.sort();
+        document.write(arr_1 + "<br>");
+
+        arr_2.reverse();
+        document.write(arr_2 + "<br>");
+    </script>
+</body>
+</html>
