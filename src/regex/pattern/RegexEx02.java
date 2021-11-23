@@ -20,6 +20,35 @@ public class RegexEx02 {
 		 5. &&: 교집합 (좌항과 우항 패턴을 모두 만족하는 문자)
 		 */
 		
+		System.out.println(Pattern.matches("s[^1-9]eep", "s0eep"));
+		System.out.println(Pattern.matches("s[a-zA-Z]eep", "sLeep"));
+		System.out.println(Pattern.matches("s[a-dm-z]eep", "sleep"));
+		System.out.println(Pattern.matches("s[a-d&&c-f]eep", "sceep"));
+		
+		/*
+		 # 해당 패턴이 적용될 문자의 개수를 정의하는 법 (공백 없어야됨!)
+		 1. Ex{n}: 앞에 있는 패턴이 n글자 일치해야 한다.
+		 2. Ex{n,m}: 최소 n글자 최대 m글자가 일치해야 한다.
+		 3. Ex{n,}: 최소 n글자 일치해야 한다.
+		 4. Ex?: 0번 혹은 한번
+		 5. Ex+: 최소 한번 이상
+		 6. Ex*: 0번 혹은 여러 번
+		 */
+		
+		System.out.println(Pattern.matches("....[\\d]{3}", "abcd123"));
+		System.out.println(Pattern.matches("[\\w가-힣]{2,12}", "abcd안녕123456"));
+		
+		String email = "abc@네이버";
+		System.out.println(Pattern.matches("[\\w]+@[a-zA-Z0-9]+\\.[a-zA-Z]+", email));
+		
+		/*
+		 Pattern.matches(regex, str)
+		 -> 전달한 문자열이 정규표현식과 일치하면 true.
+		 
+		 Matcher
+		 - 문자열을 처음부터 끝까지 검사하면서
+		  해당 정규표현식과 일치하는 인덱스를 찾을 결과를 가지고 있는 객체.
+		 */
 		
 		
 		
@@ -28,7 +57,6 @@ public class RegexEx02 {
 	}
 
 }
-
 
 
 

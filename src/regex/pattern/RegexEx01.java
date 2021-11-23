@@ -19,25 +19,24 @@ public class RegexEx01 {
 		 - 패턴을 이용하여 대상 문자열을 검색할 때 사용하는 클래스.
 		 */
 		
-		String info = "30세/서울시 마포구/02-123-4547/010-2345-6789/kkk@naver.com";	
-				
-		//전화번호 형식 
+		String info = "30세/서울시 마포구/02-123-4567/010-2345-6789/kkk@naver.com";
+		
+		//전화번호 형식
 		// \\d: 숫자 형식인지를 파악
 		// \\d{3}: 숫자 3개를 찾음.
 		// \\d{3,4}: 숫자가 3이상 4이하를 찾음.
 		
 		String pattern = "\\d{2,3}-\\d{3,4}-\\d{4}";
 		
-		//비교/검증이 가능한 정규표현식을 만들어 내는 메서드
+		// 비교/검증이 가능한 정규표현식을 만들어 내는 메서드
 		Pattern p = Pattern.compile(pattern);
 		// 데이터를 비교해서 Matcher 클래스로 반환.
 		Matcher m = p.matcher(info);
 		
-		while (m.find()) {
+		while(m.find()) {
 			System.out.println("찾은 인덱스: " + m.start());
 			System.out.println("끝 인덱스: " + m.end());
 			System.out.println("찾은 값: " + m.group());
-			
 		}
 		
 		//이메일 형식
@@ -50,25 +49,15 @@ public class RegexEx01 {
 		
 		Matcher m2 = Pattern.compile(pattern2).matcher(info);
 		
-		while (m2.find()) {
+		while(m2.find()) {
 			System.out.println("찾은 인덱스: " + m2.start());
 			System.out.println("끝 인덱스: " + m2.end());
 			System.out.println("찾은 값: " + m2.group());
-		
-		
-		
 		}
-		
-		
-		
-		
-		
-		
 
 	}
 
 }
-
 
 
 
