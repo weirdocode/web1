@@ -33,6 +33,12 @@ WHEN MATCHED THEN -- 조건에 일치할 경우 타겟 테이블에 실행
         a.commission_pct = b.commission_pct,
         a.manager_id = b.manager_id,
         a.department_id = b.department_id
+    /*DELETE WHERE ~~~~ 
+        DELETE만 단독으로 쓰일 수 없습니다.
+        UPDATE 이후에 DELETE 작성이 가능합니다.
+        삭제할 대상 컬럼들을 동일한 값으로 일단 UPDATE를 진행하고
+        DELETE의 WHERE절에 아까 지정한 동일한 값을 지정해서 삭제합니다.
+    */ 
 WHEN NOT MATCHED THEN -- 조건에 일치하지 않는 경우 타겟테이블에 실행.
     INSERT /*속성(컬럼)*/ VALUES
         (b.employee_id, b.first_name, b.last_name,

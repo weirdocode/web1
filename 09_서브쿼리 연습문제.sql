@@ -141,6 +141,97 @@ SELECT
 FROM locations loc
 ORDER BY country_name ASC;
 
+-- 문제 12
+SELECT * FROM
+    (
+    SELECT ROWNUM rn, a.* FROM
+        (
+        SELECT
+            e.employee_id,
+            e.first_name,
+            e.phone_number,
+            e.hire_date,
+            d.department_id,
+            d.department_name
+        FROM employees e LEFT JOIN departments d
+        ON d.department_id = e.department_id
+        ORDER BY hire_date ASC
+        ) a
+    )
+WHERE rn > 10 AND rn <= 20;
+
+-- 문제 13
+
+SELECT a.*,
+       d.department_name FROM
+    (
+    SELECT last_name, job_id, department_id
+    FROM employees
+    WHERE job_id = 'SA_MAN'
+    ) a
+JOIN departments d
+ON a.department_id = d.department_id;
+
+-- 문제 14
+
+SELECT
+    d.department_id,
+    d.department_name,
+    d.manager_id,
+    a.total
+FROM departments d
+JOIN
+    (
+    SELECT department_id, COUNT(*) AS total
+    FROM employees
+    GROUP BY department_id
+    ) a
+ON d.department_id = a.department_id
+ORDER BY total DESC;
+
+-- 문제 15
+SELECT
+    d.*,
+    loc.street_address,
+    loc.postal_code,
+    NVL(a.result, 0) AS 부서별평균급여
+FROM departments d
+INNER JOIN locations loc
+ON d.location_id = loc.location_id
+LEFT OUTER JOIN (SELECT department_id, TRUNC(AVG(salary)) AS result
+                 FROM employees 
+                 GROUP BY department_id) a
+ON d.department_id = a.department_id;
+
+-- 문제 16
+SELECT * 
+    FROM
+    (
+    SELECT ROWNUM AS rn, tbl.* 
+        FROM
+        (
+        SELECT
+            d.*,
+            loc.street_address,
+            loc.postal_code,
+            NVL(a.result, 0) AS 부서별평균급여
+        FROM departments d
+        INNER JOIN locations loc
+        ON d.location_id = loc.location_id
+        LEFT OUTER JOIN (SELECT department_id, TRUNC(AVG(salary)) AS result
+                         FROM employees 
+                         GROUP BY department_id) a
+        ON d.department_id = a.department_id
+        ) tbl
+    )
+WHERE rn > 10 AND rn <= 20;
+
+
+
+
+
+
+
 
 
 
