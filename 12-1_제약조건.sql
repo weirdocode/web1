@@ -88,8 +88,43 @@ SELECT * FROM user_constraints
 WHERE table_name = 'DEPT2';
 
 
+-- ¹®Á¦ 1
+CREATE TABLE members (
+    m_name VARCHAR2(20) NOT NULL,
+    m_num NUMBER(3) CONSTRAINT mem_memnum_pk PRIMARY KEY,
+    reg_date DATE NOT NULL CONSTRAINT mem_regdate_uk UNIQUE,
+    gender VARCHAR2(5),
+    loca NUMBER(4) CONSTRAINT mem_loca_loc_locid_fk REFERENCES locations(location_id)
+    --CONSTRAINT mem_loca_loc_locid_fk FOREIGN KEY(loca) REFERENCES locations(location_id)
+);
 
+SELECT * FROM user_constraints
+WHERE table_name='MEMBERS';
 
+INSERT INTO members
+VALUES('AAA', 1, '18/07/01', 'M', 1800);
+
+INSERT INTO members
+VALUES('BBB', 2, '18/07/02', 'F', 1900);
+
+INSERT INTO members
+VALUES('CCC', 3, '18/07/03', 'M', 2000);
+
+INSERT INTO members
+VALUES('DDD', 4, sysdate, 'M', 2000);
+
+COMMIT;
+
+SELECT * FROM members;
+
+SELECT
+    m.m_name,
+    m.m_num,
+    loc.street_address,
+    loc.location_id
+FROM members m JOIN locations loc
+ON m.loca = loc.location_id
+ORDER BY m_num ASC;
 
 
 
