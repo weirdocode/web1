@@ -3,23 +3,34 @@ package kr.co.jsp.board.model;
 import java.util.List;
 
 public interface IBoardDAO {
-	
-	//게시글 등록
-	boolean insert(BoardVO vo);
-	
-	//게시글 전체 조회
-	List<BoardVO> selectAll();
-	
-	//게시글 상세 조회
-	BoardVO selectOne(int bId);
-	
-	//게시글 수정
-	boolean update(BoardVO vo);
-	
-	//게시글 삭제
-	boolean delete(int bId);
 
+	//글 등록 메서드
+	void regist(String writer, String title, String content);
+	
+	//글 전체 목록을 가지고 오는 메서드
+	List<BoardVO> listBoard();
+	
+	//글 상세보기 요청을 처리할 메서드
+	BoardVO contentBoard(int bId);
+	
+	//글 수정 요청을 처리할 메서드 (제목, 내용)
+	void updateBoard(String title, String content, int bId);
+	
+	//글 삭제 요청을 처리할 메서드
+	void deleteBoard(int bId);
+	
+	//글 검색 요청을 처리할 메서드 (제목 검색)
+	List<BoardVO> searchBoard(String keyword);
+	
+	//조회수를 올려주는 메서드
+	void upHit(int bId);
+	
 }
+
+
+
+
+
 
 
 

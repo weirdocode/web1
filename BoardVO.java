@@ -3,22 +3,22 @@ package kr.co.jsp.board.model;
 import java.sql.Timestamp;
 
 /*
- CREATE TABLE board(
+CREATE TABLE my_board (
     board_id NUMBER PRIMARY KEY,
-    writer VARCHAR2(45) NOT NULL,
+    writer VARCHAR2(30) NOT NULL,
     title VARCHAR2(100) NOT NULL,
     content VARCHAR2(2000),
-    reg_date DATE DEFAULT sysdate
+    reg_date DATE DEFAULT sysdate,
+    hit NUMBER DEFAULT 0
 );
 
-CREATE SEQUENCE bid_seq
+CREATE SEQUENCE board_seq
     START WITH 1
     INCREMENT BY 1
     MAXVALUE 1000
     NOCYCLE
     NOCACHE;
  */
-
 
 public class BoardVO {
 
@@ -27,16 +27,18 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private Timestamp regDate;
+	private int hit;
 	
 	public BoardVO() {}
 
-	public BoardVO(int boardId, String writer, String title, String content, Timestamp regDate) {
+	public BoardVO(int boardId, String writer, String title, String content, Timestamp regDate, int hit) {
 		super();
 		this.boardId = boardId;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.regDate = regDate;
+		this.hit = hit;
 	}
 
 	public int getBoardId() {
@@ -78,11 +80,23 @@ public class BoardVO {
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
-	
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	
 	
 	
 }
+
+
+
+
+
 
 
 
