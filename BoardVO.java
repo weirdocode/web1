@@ -29,6 +29,9 @@ public class BoardVO {
 	private Timestamp regDate;
 	private int hit;
 	
+	//new 마크를 띄울 지 말지의 여부를 판단하는 논리 필드 추가
+	private boolean newMark;
+	
 	public BoardVO() {}
 
 	public BoardVO(int boardId, String writer, String title, String content, Timestamp regDate, int hit) {
@@ -39,6 +42,15 @@ public class BoardVO {
 		this.content = content;
 		this.regDate = regDate;
 		this.hit = hit;
+	}
+	
+	//boolean 타입 변수의 getter는 is로 시작하는 것이 관례입니다.
+	public boolean isNewMark() {
+		return newMark;
+	}
+	
+	public void setNewMark(boolean newMark) {
+		this.newMark = newMark;
 	}
 
 	public int getBoardId() {

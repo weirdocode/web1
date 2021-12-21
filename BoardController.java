@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.jsp.board.model.BoardDAO;
 import kr.co.jsp.board.model.BoardVO;
 import kr.co.jsp.board.service.ContentService;
+import kr.co.jsp.board.service.DeleteService;
 import kr.co.jsp.board.service.GetListService;
 import kr.co.jsp.board.service.IBoardService;
 import kr.co.jsp.board.service.ModifyService;
 import kr.co.jsp.board.service.RegistService;
+import kr.co.jsp.board.service.SearchService;
 import kr.co.jsp.board.service.UpdateService;
 
 @WebServlet("*.board")
@@ -106,6 +108,25 @@ public class BoardController extends HttpServlet {
 			sv.execute(request, response);
 			response.sendRedirect("/MyWeb/content.board?bId=" + request.getParameter("bId"));
 			break;
+			
+		case "delete":
+			System.out.println("글 삭제 요청이 들어옴!");
+			sv = new DeleteService();
+			sv.execute(request, response);
+			response.sendRedirect("/MyWeb/list.board");
+			break;
+			
+		case "search":
+			System.out.println("글 검색 요청이 들어옴!");
+			sv = new SearchService();
+			sv.execute(request, response);
+			
+			if(request.getAttribute("boardList") != null) {
+				dp = request.getRequestDispatcher("board/board_list.jsp");
+				dp.forward(request, response);
+				break;
+			}
+			
 			
 		}
 		
