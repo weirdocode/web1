@@ -25,7 +25,7 @@ input {
       <h2>비밀번호 변경 페이지</h2>
       <hr>
        
-      <form action="user_change_pw_con.jsp" method="post">
+      <form action="/MyWeb/changePw.user" method="post">
          <p><strong>현재 비밀번호</strong></p>
           <input type="password" name="old_pw" required="required"> <br><br>
          <p><strong>변경 비밀번호</strong></p>

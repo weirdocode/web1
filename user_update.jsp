@@ -2,14 +2,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%
+    <%--
     	/*
     	- 사용자가 이 페이지에 들어왔을 때
     	세션에 들어있는 로그인 중인 회원 정보를 불러온 후
     	아래의 input 태그의 value에 해당하는 값이 보여지도록 처리.
     	*/
     	UserVO vo = (UserVO) session.getAttribute("user");
-    %>
+    --%>
     
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@
                <h2><span style="color: gray;">MyWeb</span> 회원 정보 수정</h2>
             </div>
             <div class="panel-body">
-               <form action="user_update_con.jsp" method="post" style="margin-bottom: 0;">
+               <form action="/MyWeb/update.user" method="post" style="margin-bottom: 0;">
                    
                   <table
                      style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
@@ -54,7 +54,7 @@
                         </td>
                      </tr>
                      <tr>
-                        <td><input type="text" name="name" value="<%=vo.getName() %>"
+                        <td><input type="text" name="name" value="${user.name}"
                            class="form-control" maxlength="6"
                            style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
                            placeholder="이름을 입력하세요."></td>
@@ -67,7 +67,7 @@
                         </td>
                      </tr>
                      <tr>
-                        <td><input type="email" name="email" value="<%=vo.getEmail() %>"
+                        <td><input type="email" name="email" value="${user.email}"
                            class="form-control" 
                            style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
                            placeholder="ex) abc@jsp.com"></td>
@@ -78,7 +78,7 @@
                         </td>
                      </tr>
                      <tr>
-                        <td><input type="text" name="address" value="<%=vo.getAddress() %>"
+                        <td><input type="text" name="address" value="${user.address}"
                            class="form-control" 
                            style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
                            placeholder="ex) 서울특별시 종로구"></td>

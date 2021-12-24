@@ -14,7 +14,7 @@
 		<h3>현재 비밀번호를 입력하세요.</h3>
 		<hr>
 		
-	<form action="user_delete_con.jsp" method="post" role="form" class="form-inline">
+	<form action="/MyWeb/delete.user" method="post" role="form" class="form-inline">
         <div class="form-group">
             <input type="password" name="check_pw" class="form-control" placeholder="현재 비밀번호"
             style="width: 225px">

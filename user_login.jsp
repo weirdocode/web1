@@ -26,7 +26,7 @@
                <h2><span style="color: gray;">MyWeb</span> 로그인</h2>               
             </div>
             <div class="panel-body">
-               <form action="user_login_con.jsp" method="post"
+               <form action="/MyWeb/login.user" method="post"
                style="margin-bottom: 0;">
                <table style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
                   <tr>

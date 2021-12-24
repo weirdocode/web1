@@ -31,7 +31,7 @@ table {
                <h2><span style="color: gray;">MyWeb</span> 회원 가입</h2>
             </div>
             <div class="panel-body">
-               <form action="user_join_con.jsp" method="post" name="reg_form" style="margin-bottom: 0;">
+               <form action="/MyWeb/join.user" method="post" name="reg_form" style="margin-bottom: 0;">
                   
                   <table
                      style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
