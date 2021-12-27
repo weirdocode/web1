@@ -1,8 +1,6 @@
-package kr.co.jsp.board.commons;
+package kr.oco.jsp.board.model;
 
-//페이지 버튼 알고리즘을 실행할 객체
 public class PageCreator {
-
 	//페이지 번호와 한 페이지당 들어갈 게시물의 개수를 갖고 있는 객체
 	private PageVO paging;
 	private int articleTotalCount; //총 게시물의 개수
@@ -75,25 +73,4 @@ public class PageCreator {
 		this.next = next;
 	}
 	
-	
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

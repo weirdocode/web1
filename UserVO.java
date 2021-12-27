@@ -1,7 +1,7 @@
-package kr.co.jsp.user.model;
+package kr.oco.jsp.user.model;
 
 /*
- CREATE TABLE my_user(
+ CREATE TABLE semi_user(
     user_id VARCHAR2(30) PRIMARY KEY,
     user_pw VARCHAR2(30) NOT NULL,
     user_name VARCHAR2(20) NOT NULL,
@@ -15,19 +15,24 @@ public class UserVO {
 	private String id;
 	private String pw;
 	private String name;
+	private String phone;
 	private String email;
 	private String address;
-	
+
 	public UserVO() {}
 
-	public UserVO(String id, String pw, String name, String email, String address) {
+	public UserVO(String id, String pw, String name, String phone, String email, String address) {
 		super();
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
+		this.phone = phone;
 		this.email = email;
 		this.address = address;
+
 	}
+
+
 
 	public String getId() {
 		return id;
@@ -51,6 +56,14 @@ public class UserVO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {

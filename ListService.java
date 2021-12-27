@@ -1,19 +1,25 @@
 package kr.oco.jsp.board.service;
 
+
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.oco.jsp.board.model.BoardDAO;
 import kr.oco.jsp.board.model.BoardVO;
+import kr.oco.jsp.board.model.PageVO;
 
-public class ModifyService implements IBoardService {
+public class ListService implements IBoardService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		List<BoardVO> boardList = BoardDAO.getInstance().listBoard();
 		
-		int id = Integer.parseInt(request.getParameter("bId"));//content에서 받은 파라미터값
-		BoardVO vo = BoardDAO.getInstance().contentBoard(id);
-		request.setAttribute("article", vo);
-	}
 
+		request.setAttribute("boardList", boardList);
+
+		
+}
 }

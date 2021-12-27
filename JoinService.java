@@ -1,4 +1,4 @@
-package kr.co.jsp.user.service;
+package kr.oco.jsp.user.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,8 +6,8 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.jsp.user.model.UserDAO;
-import kr.co.jsp.user.model.UserVO;
+import kr.oco.jsp.user.model.UserDAO;
+import kr.oco.jsp.user.model.UserVO;
 
 public class JoinService implements IUserService {
 
@@ -38,6 +38,7 @@ public class JoinService implements IUserService {
 						id,
 						request.getParameter("pw"),
 						request.getParameter("name"),
+						request.getParameter("phone"),
 						request.getParameter("email"),
 						request.getParameter("address")
 						);
@@ -45,7 +46,7 @@ public class JoinService implements IUserService {
 				htmlCode = 
 						"<script>\r\n" +
 						"alert('회원가입을 환영합니다!');\r\n" + 
-						"location.href='/MyWeb/loginPage.user';\r\n" +
+						"location.href='/SemiProject/login.user';\r\n" +
 						"</script>";
 				out.print(htmlCode);
 				out.flush();

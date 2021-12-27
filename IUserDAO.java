@@ -1,4 +1,4 @@
-package kr.co.jsp.user.model;
+package kr.oco.jsp.user.model;
 
 public interface IUserDAO {
 	

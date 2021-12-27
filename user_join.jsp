@@ -1,143 +1,164 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BBS Test</title>
 
-   <%--외부 자바 스크립트 파일을 import하는 방법 --%>
-   <script src="/MyWeb/js/member.js"></script>
 
-<style>
-
-table {
-   font-size: 1.25em;
+<!--회원가입 폼만 적용되는 css-->
+<style type="text/css">
+.table-striped>tbody>tr {
+	background-color: #f9f9f9
 }
 
+.join-form {
+	margin: 0 auto;
+	padding: 20px;
+	width: 50%;
+	float: none;
+	background-color: white;
+}
+
+.form-group>.sel {
+	width: 120px;
+	display: inline-block;
+}
 </style>
+
+
+
 </head>
+
 <body>
 
-<%@ include file="../include/header.jsp" %>
+	<!--header -->
 
-<div class="virtual-box"></div>
 
-<div class="container">
-   <div class="row">
-      <div class="col-md-offset-2 col-md-4">
-         <div class="panel" style="width:200%;">
-            <div class="panel-heading text-white" align="center" style="background: #F8F8FF;">
-               <h2><span style="color: gray;">MyWeb</span> 회원 가입</h2>
-            </div>
-            <div class="panel-body">
-               <form action="/MyWeb/join.user" method="post" name="reg_form" style="margin-bottom: 0;">
-                  
-                  <table
-                     style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
-                     <tr>
-                        <td style="text-align: left">
-                           <p><strong>아이디를 입력해 주세요.</strong>&nbsp;&nbsp;&nbsp;</p>
-                        </td>                     
-                     </tr>
-                     <tr>
-                        <td><input type="text" name="id"
-                           class="form-control" maxlength="14"
-                           style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-                           placeholder="4글자 이상 작성하세요.">
-                        </td>
-                     </tr>
-         
-                     <tr>
-                        <td style="text-align: left">
-                           <p><strong>비밀번호를 입력해 주세요.</strong>&nbsp;&nbsp;&nbsp;</p>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><input type="password" size="17"
-                           name="pw" class="form-control" maxlength="20" 
-                           style="ime-mode: inactive; margin-bottom: 25px; height: 40px; border: 1px solid #d9d9de"
-                           placeholder="4글자 이상 작성하세요."></td>
-                     </tr>
-                     <tr>
-                        <td style="text-align: left">
-                           <p><strong>비밀번호를 재확인 해 주세요.</strong>&nbsp;&nbsp;&nbsp;</p>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><input type="password" size="17"
-                           name="pw_check" class="form-control" 
-                           maxlength="20" style="ime-mode: inactive; 
-                           margin-bottom: 25px; height: 40px; border: 1px solid #d9d9de"
-                           placeholder="비밀번호가 일치해야합니다."></td>
-                     </tr>
-         
-                     <tr>
-                        <td style="text-align: left">
-                           <p><strong>이름을 입력해 주세요.</strong>&nbsp;&nbsp;&nbsp;</p>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><input type="text" name="name"
-                           class="form-control" maxlength="6"
-                           style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-                           placeholder="이름을 입력하세요."></td>
-                     </tr>
-                     
-                      
-                     <tr>
-                        <td style="text-align: left">
-                           <p><strong>이메일을 입력해 주세요.</strong>&nbsp;&nbsp;&nbsp;</p>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><input type="email" name="email"
-                           class="form-control" 
-                           style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-                           placeholder="ex) abc@jsp.com"></td>
-                     </tr>
-                     <tr>
-                        <td style="text-align: left">
-                           <p><strong>주소를 입력해 주세요.</strong>&nbsp;&nbsp;&nbsp;</p>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><input type="text" name="address"
-                           class="form-control" 
-                           style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-                           placeholder="ex) 서울특별시 종로구"></td>
-                     </tr> 
-                     
-         
-                     <tr>
-                        <td style="padding-top: 10px; text-align: center">
-                           <p><strong>회원가입을 환영합니다!</strong></p>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td style="width: 100%; text-align: center; colspan: 2;">
-                        <input
-                           type="button" value="회원가입" 
-                           class="btn form-control" onclick="joinConfirm()"
-                           style="background: gray; margin-top: 0; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8">
-                        </td>
-                     </tr>
-         
-                  </table>
-               </form>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+	<%@ include file="../include/header.jsp"%>
 
-<%@ include file="../include/footer.jsp" %>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-9 col-sm-12 join-form">
+					<h2>
+						회원가입<small>(가운데정렬)</small>
+					</h2>
 
+					<form action="/SemiProject/login.user" method="post"
+						name="reg_form">
+						<div class="form-group">
+							<label for="id">아이디</label> <input type="text" name="id"
+								class="form-control" id="id" placeholder="아이디를 (영문포함 4~12자 이상)">
+
+
+						</div>
+						<div class="form-group">
+							<label for="password">비밀번호</label> <input type="password"
+								class="form-control" id="pw" name="pw"
+								placeholder="비밀번호 (영 대/소문자, 숫자, 특수문자 3종류 이상 조합 8자 이상)">
+						</div>
+						<div class="rm-group">
+							<label for="password-confrim">비밀번호 확인</label> <input
+								type="password" class="form-control" name="pw_check" id="pwcon"
+								placeholder="비밀번호를 확인해주세요.">
+						</div>
+
+
+						<div class="form-group">
+							<label for="name">이름</label> <input type="text" name="name"
+								class="form-control" id="name" placeholder="이름을 입력하세요.">
+						</div>
+						<!--input2탭의 input-addon을 가져온다 -->
+						<div class="form-group">
+							<label for="hp">휴대폰번호</label><br> <input id="phone"
+								class="form-control sel" placeholder="010-xxxx-xxxx" size="13"
+								name="phone">
+
+
+
+						</div>
+						<div class="form-group">
+							<label for="hp">이메일</label><br> <input
+								class="form-control sel" name = "email2">@ <select name="email"
+								class="form-control sel">
+								<option value="naver.com">naver.com</option>
+								<option value="gmail.com">gmail.com</option>
+								<option value="daum.net">daum.net</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="addr-num">주소</label> <input type="text"
+								name="address" class="form-control" id="addr-basic"
+								placeholder="기본주소">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="addr-detail"
+								placeholder="상세주소">
+						</div>
+						<div class="form-group">
+							<button type="button" id="join-btn" class="btn btn-lg btn-success btn-block">회원가입</button>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-lg btn-info btn-block"
+								onclick="location href= '/SemiPriject_LoginGo.user/'">로그인</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+
+	<!--footer -->
+	<%@ include file="../include/footer.jsp"%>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+
+	<script>
+		
+		document.getElementById("join-btn").onclick = function() {
+			if(document.getElementById("id").value <  4){
+				alert('아이디는 4자리보다 커야한다..');
+				return;
+			}
+			
+			if(document.getElementById("pw").value == '') {
+				alert("비밀번호는 필수사항");
+				return;
+			}
+			
+			if(document.getElementById("pwcon").value == '') {
+				alert("비밀번호 체크사항 입력");
+				return;
+			}
+				
+	
+			if(document.getElementById("pw").value != document.getElementById("pwcon").value) {
+				alert('비밀번호는 서로 같아야한다.');
+				return;
+			}
+			if(document.getElementById("name").value == ''){
+				alert('이름은 필수 입력 사항입니다.');
+			}
+			
+			var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+	         if(regPhone.test(document.getElementById("phone").vlaue) == true){
+	            alert("휴대전화 번호를 확인해주세요");
+	            return
+	         }
+			document.reg_form.submit();
+		}
+	
+								
+	 </script>
 
 </body>
+
 </html>
-
-
-
-
-

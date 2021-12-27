@@ -1,18 +1,24 @@
-package kr.co.jsp.user.model;
+package kr.oco.jsp.user.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class UserDAO implements IUserDAO {
+import kr.oco.jsp.board.model.BoardVO;
+import kr.oco.jsp.user.model.UserDAO;
 
-	private DataSource ds;
+public class UserDAO implements IUserDAO {
 	
+	
+	private DataSource ds;
+
 	private UserDAO() {
 		try {
 			InitialContext ct = new InitialContext();
@@ -21,157 +27,204 @@ public class UserDAO implements IUserDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static UserDAO dao = new UserDAO();
-	
+
 	public static UserDAO getInstance() {
-		if(dao == null) {
+		if (dao == null) {
 			dao = new UserDAO();
 		}
 		return dao;
 	}
+
+	/////////////////////////////// ////////////////////////////
+
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
 	
-	
-	
-	////////////////////////////////////////////////////////////////
-		
 	@Override
 	public boolean confirmId(String id) {
 		boolean flag = false;
-		String sql = "SELECT * FROM my_user WHERE user_id=?";
-		
-		/*
-		 # try with resource
-		 - try문을 작성할 때 자원 객체를 소괄호 안에 전달하면
-		  try블록이 끝날 때 자동으로 자원을 해제해 줍니다.
-		 - 자동으로 종료되는 자원은 반드시 AutoCloseable 인터페이스의 구현체여야 합니다.
-		 */
-		
-		try(Connection conn = ds.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		String sql = "SELECT * FROM semi_user WHERE user_id=?";
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)){
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) flag = true;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return flag;
 	}
 
 	@Override
 	public void insertUser(UserVO vo) {
-		String sql = "INSERT INTO my_user VALUES(?,?,?,?,?)";
-		try(Connection conn = ds.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		String sql = "insert into semi_user values(?,?,?,?,?,?,?)";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPw());
 			pstmt.setString(3, vo.getName());
-			pstmt.setString(4, vo.getEmail());
-			pstmt.setString(5, vo.getAddress());
+			pstmt.setString(4, vo.getPhone());
+			pstmt.setString(5, vo.getEmail());
+			pstmt.setString(6, vo.getAddress());
 			pstmt.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
 		}
+		
+
 	}
 
 	@Override
 	public int userCheck(String id, String pw) {
+		String sql = "select user_pw from semi_user where user_id = ? "; 
 		int check = 0;
-		String sql = "SELECT * FROM my_user WHERE user_id=?";
-		try(Connection conn = ds.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				String dbPw = rs.getString("user_pw");
-				if(dbPw.equals(pw)) check = 1;
-				else check = 0;
+				if (dbPw.equals(pw)) {
+					check = 1;
+				}
 			} else {
 				check = -1;
 			}
-			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}		
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		return check;
 	}
 
 	@Override
 	public UserVO getUserInfo(String id) {
-		UserVO user = null;
-		String sql = "SELECT * FROM my_user WHERE user_id='" + id + "'";
-		try(Connection conn = ds.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql);
-				ResultSet rs = pstmt.executeQuery()) {
+		UserVO vo = null;
+		String sql = "select * from semi_user where user_id='" + id + "'";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				user = new UserVO(
-							rs.getString("user_id"),
-							rs.getString("user_pw"),
-							rs.getString("user_name"),
-							rs.getString("user_email"),
-							rs.getString("user_address")
+				vo = new UserVO(
+						rs.getString("user_id"),
+						rs.getString("user_pw"),
+						rs.getString("user_name"),
+						rs.getString("user_phone"),
+						rs.getString("user_email"),
+						rs.getString("user_address")
 						);
+				
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
-		return user;
+		return vo;
 	}
 
 	@Override
 	public void changePassword(String id, String newPw) {
-		String sql = "UPDATE my_user SET user_pw=? WHERE user_id=?";
-		try(Connection conn = ds.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, newPw);
-			pstmt.setString(2, id);
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void updateUser(UserVO vo) {
-		String sql = "UPDATE my_user "
-				+ "SET user_name=?, user_email=?, user_address=? "
-				+ "WHERE user_id=?";
-		try(Connection conn = ds.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, vo.getName());
-			pstmt.setString(2, vo.getEmail());
+		String sql = "update semi_user set USER_EMAIL=?, user_phone = ? ,user_address=? where user_id =?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(2, vo.getPhone());
 			pstmt.setString(3, vo.getAddress());
 			pstmt.setString(4, vo.getId());
 			pstmt.executeUpdate();
-		} catch (Exception e) {
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
 		}
+		
 
 	}
 
 	@Override
 	public void deleteUser(String id) {
-		String sql = "DELETE FROM my_user WHERE user_id=?";
-		try(Connection conn = ds.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, id);
-			pstmt.executeUpdate();
-		} catch (Exception e) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public List<BoardVO> myboard() {
+		List<BoardVO>boardList = new ArrayList();
+		String sql = "SELECT * from me_board join semi_user on semi_user.user_id = ME_board.writer";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardVO board = new BoardVO(
+						rs.getInt("board_id"),
+						rs.getString("writer"),
+						rs.getString("title"),
+						rs.getString("content"),
+						rs.getTimestamp("reg_date"),
+						rs.getInt("hit")
+						);
+				boardList.add(board);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
 		}
+		return boardList;
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-

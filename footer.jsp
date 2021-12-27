@@ -7,45 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	   <!--Footer-->
   <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <span class="copyright">
-            Copyright &copy; By Stephen Programming 2019
-          </span>
+        <div class="copyright py-4 text-center text-white">
+            <div class="container bounceIn animate">
+                <small>Copyright
+                    <!-- &copy; --> 2019.<a href=""> Min and Park</a></small>
+            </div>
         </div>
-        <div class="col-md-3">
-          <ul class="list-inline social">
-            <li class="list-inline-item">
-              <a class="facebook-btn" href="">
-                <img src="/MyWeb/img/facebook.PNG" alt="페이스북 링크">
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="instagram-btn" href="">
-                <img src="/MyWeb/img/insta.PNG" alt="인스타 링크">
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="twitter-btn" href="">
-                <img src="/MyWeb/img/twitter.PNG" alt="트위터 링크">
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <span class="contact">
-            Email: stephen4951@gmail.com
-          </span>
-        </div>
-      </div>
-    </div>
-
-  </footer>
-	
-
+    </footer>
+    
+    	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/SemiProject/js/bootstrap.js"></script>
+    
 </body>
 </html>

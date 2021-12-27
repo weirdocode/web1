@@ -1,12 +1,12 @@
-package kr.co.jsp.user.service;
+package kr.oco.jsp.user.service;
 
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.jsp.user.model.UserDAO;
-import kr.co.jsp.user.model.UserVO;
+import kr.oco.jsp.user.model.UserDAO;
+import kr.oco.jsp.user.model.UserVO;
 
 public class DeleteService implements IUserService {
 
@@ -27,7 +27,7 @@ public class DeleteService implements IUserService {
 				htmlCode = 
 	    		"<script>\r\n"
 	    		+ "alert(\"비밀번호가 틀렸습니다.\");\r\n"
-	    		+ "location.href=\"/MyWeb/myPage.user\";\r\n"
+	    		+ "location.href=\"/SemiProject/mypageGo.user\";\r\n"
 	    		+ "</script>";
 	    	 } else { 
 	    		dao.deleteUser(id);
@@ -35,7 +35,7 @@ public class DeleteService implements IUserService {
 	    		htmlCode =
 	    		"	    		<script>\r\n"
 	    		+ "	    			alert(\"회원 탈퇴가 정상적으로 처리되었습니다.\");\r\n"
-	    		+ "	    			location.href=\"/MyWeb\"\r\n"
+	    		+ "	    			location.href=\"/SemiProject\"\r\n"
 	    		+ "	    		</script>\r\n";
 	    	 }
 			out.print(htmlCode);

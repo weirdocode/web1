@@ -1,12 +1,12 @@
-package kr.co.jsp.user.service;
+package kr.oco.jsp.user.service;
 
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.jsp.user.model.UserDAO;
-import kr.co.jsp.user.model.UserVO;
+import kr.oco.jsp.user.model.UserDAO;
+import kr.oco.jsp.user.model.UserVO;
 
 public class UpdateService implements IUserService {
 
@@ -16,9 +16,11 @@ public class UpdateService implements IUserService {
 		response.setContentType("text/html; charset=UTF-8");
 	    UserVO vo = new UserVO();
 	    vo.setId(request.getParameter("id"));
+	    vo.setPw(request.getParameter("pw"));
 	    vo.setName(request.getParameter("name"));
+	    vo.setPhone(request.getParameter("phone"));
 	    vo.setEmail(request.getParameter("email"));
-	    vo.setAddress(request.getParameter("address"));
+	    vo.setAddress(request.getParameter("addFir" + "addSec"));
 	    
 	    UserDAO dao = UserDAO.getInstance();
 	    dao.updateUser(vo);
@@ -30,7 +32,7 @@ public class UpdateService implements IUserService {
 			String htmlCode = 
 				"<script>\r\n" +
 		    	"alert('회원 정보가 수정되었습니다.');\r\n" + 
-		    	"location.href='/MyWeb/myPage.user';" +
+		    	"location.href='/SemiProject/mypageGo.user';" +
 		    	"</script>";
 			out.print(htmlCode);
 			out.flush();
