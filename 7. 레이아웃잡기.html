@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <style>
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 10px;
+        }
+        .container {
+            border: 3px solid orange;
+            width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            border: 3px solid yellow;
+        }
+        nav {
+            border: 3px solid purple;
+            width: 150px;
+            height: 200px;
+            float: left;
+        }
+        section {
+            border: 3px solid green;
+            margin-left: 155px;
+        }
+        footer {
+            border: 3px solid blue;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>float 속성을 이용한 레이아웃</h1>
+    <div class="container">
+        <header>
+            <h2>header 영역</h2>
+        </header>
+        <div class="main-content clearfix">
+            <nav>
+                <h2>nav영역</h2>
+            </nav>
+            <section>
+                <h2>section 영역</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quae recusandae vel corporis corrupti
+                    at consequuntur sit quia aliquid. Voluptate cupiditate inventore incidunt adipisci quis dolorem sit
+                    corrupti modi obcaecati. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque provident
+                    corporis dolorum sit eos molestias? Sint, eveniet maiores asperiores earum neque voluptatem dolore aut
+                    iste a quam pariatur quasi voluptas.
+                </p>
+            </section>
+        </div>
+        <footer>
+            <h2>footer 영역</h2>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>
