@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <style>
+        .list-wrap {
+            width: 50%;
+            border: 1px solid black;
+            margin: 20px auto 0;
+            padding: 10px;
+            position: relative;
+        }
+        .list-img {
+            position: absolute;
+            top: 10px;
+        }
+        .list-img img {
+            width: 50px;
+        }
+        .list-content {
+            padding-left: 60px;
+        }
+        .list-control {
+            padding-left: 60px;
+        }
+        .list-input {
+            float: left;
+        }
+        button {
+            float: right;
+        }
+        input {
+            display: block;
+            width: 100px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        strong {
+            font-weight: bold;
+        }
+        .list-input .title {
+            float: left;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="list-wrap clearfix">
+        <div class="list-img">
+            <img src="./img/bgimg.png" alt="사진">
+        </div>
+        <div class="list-content">
+            <textarea rows="10" placeholder="댓글내용"></textarea>
+        </div>
+        <div class="list-control">
+            <div class="list-input">
+                <input type="text">
+                <input type="text">
+            </div>
+            <button type="button">등록하기</button>
+        </div>
+    </div>
+
+    <!-- 문제 -->
+    <div class="list-wrap clearfix">
+        <div class="list-img">
+            <img src="./img/bgimg.png" alt="사진">
+        </div>
+        <div class="list-control clearfix">
+            <div class="list-input">
+                <p class="title"><strong>제목</strong></p>
+                <p>내용</p>
+            </div>
+        </div>
+        <button>삭제</button>
+        <button>수정</button>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            height: 2000px;
+        }
+
+        .grandparent {
+            width: 400px;
+            height: 300px;
+            padding: 100px;
+            border: 4px dashed gray;
+        }
+
+        .parent {
+            width: 300px;
+            height: 300px;
+            border: 4px dashed lightgray;
+        }
+
+        .child {
+            width: 120px;
+            height: 80px;
+            background: tomato;
+            border: 4px dashed red;
+            border-radius: 10px;
+            font-size: 30px;
+        }
+        .fixed {
+            position: fixed;
+            right: 10px;
+            bottom: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="grandparent">
+        <div class="parent">
+            <div class="child">1</div>
+            <div class="child fixed">2</div>
+            <div class="child">3</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

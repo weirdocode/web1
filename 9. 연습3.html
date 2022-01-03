@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <style>
+        body {
+            background-image: url('./images/bg.png');
+        }
+
+        header .logo {
+            width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .menu {
+            background: black;
+            text-align: center;
+            width: 100%;
+        }
+
+        .menu li {
+            display: inline-block;
+            padding: 20px;
+        }
+
+        .menu li:hover {
+            background: #4d4d4d;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .slider {
+            background: #fff;
+        }
+
+        .slider ul {
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        .slider ul li {
+            width: 25%;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            margin: 40px 0;
+        }
+        section {
+            width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        section .left {
+            position: absolute;
+            top: 0;
+            left: -240px;
+        }
+        section .right {
+            position: absolute;
+            top: 0;
+            right: -240px;
+        }
+
+        .top {
+            width: 50px;
+            height: 50px;
+            background: #c13333;
+            position: fixed;
+            top: 0;
+            right: 0;
+            text-align: center;
+            line-height: 50px;
+        }
+        .top a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--
+        header -> 로고 이미지가 div에 감싸져서 들어감.
+        메뉴 1,2,3,4는 ul>li의 조합으로 a태그로 이루어짐.
+        메뉴의 가장 겉부분은 nav로 감싸져 있음.
+
+        상품 진열 사진은 article을 가장 바깥으로
+        ul>li 조합으로 img 태그를 사용함.
+
+        section태그를 하나 구성해서 이미지 배치를 진행.
+        양 사이드에는 aside 태그를 통해 이미지 2개씩 배치.
+
+        화면 우측 최상단에는 top을 fixed함.
+    -->
+    <header>
+        <div class="logo">
+            <img src="./images/logo.jpg" alt="로고">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">메뉴 1</a></li>
+                <li><a href="#">메뉴 2</a></li>
+                <li><a href="#">메뉴 3</a></li>
+                <li><a href="#">메뉴 4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article class="slider">
+        <ul class="clearfix">
+            <li><img src="./images/item01.png" alt="item01"><br>iPhone</li>
+            <li><img src="./images/item02.png" alt="item02"><br>iPod</li>
+            <li><img src="./images/item03.png" alt="item03"><br>iPad</li>
+            <li><img src="./images/item04.png" alt="item04"><br>iMac</li>
+        </ul>
+    </article>
+
+    <section>
+        <div class="content">
+            <img src="./images/ipad.jpg" alt="iPad">
+        </div>
+        <aside class="left">
+            <img src="./images/side01.png" alt="side01">
+            <br><br>
+            <img src="./images/side02.png" alt="side02">
+        </aside>
+        <aside class="right">
+            <img src="./images/side03.png" alt="side03">
+            <br><br>
+            <img src="./images/side04.png" alt="side04">
+        </aside>
+    </section>
+
+    <div class="top">
+        <a href="#">TOP</a>
+    </div>
+
+</body>
+
+</html>
