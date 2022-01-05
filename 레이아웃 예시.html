@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+
+    <style>
+        header {
+            height: 100px;
+            background: skyblue;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        ul {
+            background: #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            list-style: none;
+        }
+
+        #banner {
+            background: #ccc;
+            height: 200px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h2>그리드 시스템을 이용한 레이아웃</h2>
+        </header>
+        <div class="row">
+            <div id="menu" class="col-md-2">
+                <ul>
+                    <li>menu1</li>
+                    <li>menu2</li>
+                    <li>menu3</li>
+                    <li>menu4</li>
+                </ul>
+            </div> <!-- menu-->
+            <div id="content" class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius turpis at libero
+                            condimentum faucibus. Ut lacinia molestie mattis. In sed quam ex. Maecenas sem orci, blandit
+                            vel lectus nec, placerat faucibus odio. Vestibulum elementum accumsan orci, ut vehicula urna
+                            volutpat eget. Praesent dignissim justo sed nisl aliquet sagittis. Nullam mattis nulla sit
+                            amet metus feugiat accumsan. Suspendisse vel arcu ac nulla rutrum fringilla at ut lacus.
+
+                            
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            Praesent ullamcorper mauris sodales, dictum eros quis, congue purus. Cras consequat dolor in
+                            augue accumsan, vel ullamcorper nunc volutpat. Maecenas interdum erat justo, ut vestibulum
+                            nunc gravida eu. Maecenas placerat nibh a efficitur vestibulum. Cras tempus leo sit amet
+                            felis semper varius. Integer a imperdiet lorem. Nunc cursus ut nisl vel auctor. Nulla urna
+                            massa, interdum sed sollicitudin non, sagittis non libero. Nullam fermentum varius turpis.
+                            Sed pellentesque, massa vel blandit sollicitudin, nunc ligula imperdiet ipsum, eu suscipit
+                            turpis felis quis nibh. Suspendisse potenti. Phasellus vitae placerat erat. Sed molestie
+                            sapien magna. Nam finibus erat et pulvinar bibendum.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div id="banner" class="col-md-2">
+                여기는 기타 부가적인 배너 자리
+            </div>
+        </div><!-- row -->
+        <hr>
+        <footer>
+            여기는 하단 푸터 부분입니다.
+        </footer>
+    </div> <!-- container-->
+
+</body>
+
+</html>
