@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <!-- 
+            container-fluid 요소는 가로 해상도와 상관없이
+            항상 100%의 width를 가집니다.
+        -->
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"><img width="30px" src="./img/logo.svg" alt="logo"></a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">Main</a></li>
+                                <li><a href="#">Form</a></li>
+                                <li><a href="#">Grid Board</a></li>
+                                <li><a href="#">Board</a></li>
+                            </ul>
+                            <!-- 드롭다운으로 로그인 추가 -->
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">로그인
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Join</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <!-- 검색창을 배치하고 싶을 때 -->
+                            <form class="navbar-form navbar-right" action="#">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-primary">검색</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-9 col-xs-12 board-table">
+                    <div class="titlebox">
+                        자유게시판
+                    </div>
+                    <hr>
+
+                    <form action="#">
+                        <div class="search-wrap clearfix">
+                            <button type="submit" class="btn btn-info search-btn">검색</button>
+                            <input type="text" class="form-control search-input">
+                            <select class="form-control search-select">
+                                <option>제목</option>
+                                <option>내용</option>
+                                <option>작성자</option>
+                                <option>제목+내용</option>
+                            </select>
+                        </div>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>등록일</th>
+                                <th>수정일</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td><a href="#">첫글</a></td>
+                                    <td>홍길동</td>
+                                    <td>~~~~~~~</td>
+                                    <td>~~~~~~~</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="text-center clearfix">
+                            <hr>
+                            <ul class="pagination">
+                                <li><a href="#">이전</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">다음</a></li>
+                            </ul>
+                            <button class="btn btn-info">글쓰기</button>
+                        </div>
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-12">
+                    <div class="copyright">
+                        <a href="#">
+                            <img width="20px" src="./img/logo.svg" alt="logo2">
+                        </a>
+                        BootStrap | 대표자: 홍길동 | E-MAIL: info@info.com <br>
+                        사업자번호: 123-45-67890 | 개인정보보호책임자: 홍길동 | 통신판매업: 2019-서울마포-0001 <br>
+                        주소: 서울특별시 마포구 대흥동
+                        <address>&copy;BootStrap. ALL RIGHTS RESERVED</address>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12 text-right">
+                    <ul class="footer-menu">
+                        <li><a href="#">고객센터</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보취급방침</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="./js/bootstrap.js"></script>
+
+
+
+</body>
+
+</html>

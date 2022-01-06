@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,9 @@
     <title>인덱스를 만들어 보자</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
+
 </head>
+
 <body>
 
     <header>
@@ -65,39 +68,41 @@
 
     <!-- 본문 -->
     <section>
-        <!-- 슬라이드(캐러셀) 구현 시작-->
-        <div class="row">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!--Indicator-->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
+        <!-- 슬라이드(캐러셀) 구현 시작 -->
+        <div class="container-fluid">
+            <div class="row">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
 
-                <!-- Wrapper for sliderws-->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="./img/slide1.jpg" alt="슬라이드1">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="./img/slide1.jpg" alt="슬라이드1">
+                        </div>
+                        <div class="item">
+                            <img src="./img/slide2.jpg" alt="슬라이드2">
+                        </div>
+                        <div class="item">
+                            <img src="./img/slide3.jpg" alt="슬라이드3">
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="./img/slide2.jpg" alt="슬라이드2">
-                    </div>
-                    <div class="item">
-                        <img src="./img/slide3.jpg" alt="슬라이드3">
-                    </div>
+
+                    <!-- 좌, 우 화살표 (없애고 싶으면 지워도 됩니다.) -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
                 </div>
-
-                <!-- 좌, 우 화살표 (없애고 싶으면 지워도 됩니다.)-->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-
             </div>
         </div>
     </section>
@@ -110,36 +115,115 @@
                     <h2>상품 그리드 레이아웃 <small>(쿠팡 참조)</small></h2>
                 </div>
             </div>
-        </div>
 
-        <!-- 새로운 그리드 잡기 -->
-        <div class="row">
-            <ul class="col-xs-12 prod-list">
-                <!--첫 줄은 사이즈를 6칸씩 잡는다. (2개씩 배치)-->
-                <li class="col-sm-6">
-                    <a href="#" class="prod-link">
-                        <img src="./img/box1.jpg" alt="box1">
-                        <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                        <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                    </a>
-                </li>
-                <li class="col-sm-6">
-                    <a href="#" class="prod-link">
-                        <img src="./img/box2.jpg" alt="box1">
-                        <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                        <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                    </a>
-                </li>
-                <li class="col-sm-6 col-md-3">
-                    <a href="#" class="prod-link">
-                        <img src="./img/box3.jpg" alt="box1">
-                        <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                        <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                    </a>
-                </li>
-            </ul>
+            <!-- 새로운 그리드 잡기 -->
+            <div class="row">
+                <ul class="col-xs-12 prod-list">
+                    <!-- 첫 줄은 사이즈를 6칸씩 잡는다. (2개씩 배치) -->
+                    <li class="col-sm-6">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box1.jpg" alt="box1">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="col-sm-6">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box2.jpg" alt="box2">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <!-- 하나의 그리드를 완성했으면 다음부터는 차지하는 공간만 다르게 설정.-->
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box3.jpg" alt="box3">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box4.jpg" alt="box4">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box5.jpg" alt="box5">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box6.jpg" alt="box6">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <!-- 이번에는 md에서 6칸 sm사이즈에서 12칸 -->
+                    <li class="col-sm-12 col-md-6">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box7.jpg" alt="box7">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box8.jpg" alt="box8">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="./img/box9.jpg" alt="box9">
+                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
+                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-
     </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-12">
+                    <div class="copyright">
+                        <a href="#">
+                            <img width="20px" src="./img/logo.svg" alt="logo2">
+                        </a>
+                        BootStrap | 대표자: 홍길동 | E-MAIL: info@info.com <br>
+                        사업자번호: 123-45-67890 | 개인정보보호책임자: 홍길동 | 통신판매업: 2019-서울마포-0001 <br>
+                        주소: 서울특별시 마포구 대흥동
+                        <address>&copy;BootStrap. ALL RIGHTS RESERVED</address>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12 text-right">
+                    <ul class="footer-menu">
+                        <li><a href="#">고객센터</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보취급방침</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="./js/bootstrap.js"></script>
+
 </body>
+
 </html>
