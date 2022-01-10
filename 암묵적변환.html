@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var ex = 10 + '20'; //1020
+        console.log('ex: ' + ex);
+
+        ex = 10 * '3';
+        console.log('ex: ' + ex);
+
+        var ex2 = 100 + ''; // '100'
+
+        //문자열 타입의 암묵적 숫자 변환
+        ex2 = + '550';
+
+        ex2 = true + '';
+        //논리 타입의 암묵적 숫자 변환
+        ex2 = +false;
+
+        ex2 = +null;
+
+
+
+        console.log(ex2)
+        console.log(typeof ex2);
+
+    </script>
+
+
+
+</body>
+</html>

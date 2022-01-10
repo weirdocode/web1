@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //undefined, null, 0, NaN, ''(빈문자열)은 모두 false로 판단
+        //나머지는 모두 true로 판단합니다.
+
+        if('') console.log('OK1'); //false
+        if('hello') console.log('OK2');
+        if(undefined) console.log('OK3'); //false
+        if(null) console.log('OK4'); //false
+        if(350) console.log('OK5');
+        if(NaN) console.log('OK6'); //false
+        if(0) console.log('OK7'); //false
+        if([1,2,3]) console.log('OK8');
+    </script>
+    
+</body>
+</html>

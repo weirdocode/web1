@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //우리반 학생들 4과목 점수 (국영수탐)
+        // var kim = [67,89,92,32];
+        // var lee = [100, 87, 55, 67];
+        // var park = [23, 44, 100, 22];
+
+        var ourStudentScores = [
+            [67, 89, 92, 32],
+            [100, 87, 55, 67],
+            [23, 44, 100, 22],
+            [100, 100, 92, 44]
+        ];
+
+        console.log(ourStudentScores);
+        console.log(ourStudentScores[1]);
+        console.log(ourStudentScores[0][2]);
+
+        //우리반 한 학생의 평균의 총합을 저장할 변수
+        var ourAverages = 0;
+        
+        for(var studentScores of ourStudentScores) {
+
+            var eachTotal = 0; // 한 학생의 4과목 총점
+            for(var score of studentScores) {
+                eachTotal += score;
+            }
+            //한 학생의 평균점수
+            var eachAvg = eachTotal / studentScores.length;
+            ourAverages += eachAvg;
+        }
+
+        var classAvg = ourAverages / ourStudentScores.length;
+        console.log('우리반 평균: ' + classAvg + '점');
+
+
+    </script>
+
+</body>
+
+</html>
