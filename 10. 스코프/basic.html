@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="up_down.js"></script>
+    <script>
+
+        // var x = 'global';
+
+        function foo(y) {
+            var x = 'local';
+            console.log('x: ' + x);
+            console.log('y: ' + y);
+        }
+
+        foo('parameter');
+        console.log('x: ' + x);
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //객체 생성
+        var dog = {
+            name : '뽀삐',
+            kind : '시츄',
+            age : 3,
+            favorite : ['산책', '간식']
+        };
+
+        var cat = {
+            name : '야옹이',
+            kind : '페르시안',
+            age : 2,
+            favorite : ['낮잠', '츄르', '실뭉치']
+        };
+
+        console.log(typeof cat);
+
+        //객체 프로퍼티 참조
+        console.log(dog.name);
+        console.log(cat.name);
+
+        console.log(dog.age);
+        console.log(cat.favorite[1]);
+
+        dog.favorite.push('꼬리흔들기');
+        console.log(dog);
+
+        console.log('==========================');
+
+        //프로퍼티 참조 다른 방식
+        console.log(dog.kind);
+        console.log(dog['kind']);
+        
+        //프로퍼티 값 수정
+        dog.age = 5;
+
+        cat.favorite[1] = '고등어';
+        console.log(cat);
+
+        console.log('================================');
+
+        //프로퍼티 동적 추가
+        dog.owner = '김철수';
+        console.log(dog);
+
+        //프로퍼티 삭제
+        delete dog.owner;
+        console.log(dog);
+
+        //for ~ in (ES6)
+        console.log('===========================');
+        for(var key in cat) {
+            console.log(cat[key]);
+        }
+
+        console.log('===========================');
+
+        //객체의 프로퍼티 키의 존재 유무 확인 (in 키워드)
+        var flag = 'kind' in cat;
+        console.log(flag);
+
+
+    </script>
+
+
+
+
+</body>
+</html>

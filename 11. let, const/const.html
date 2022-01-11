@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const x = '메롱';
+        console.log(x);
+
+        // x = '안메롱'; (값의 변경이 불가능)
+
+        //const와 객체(객체, 배열, 함수)
+        const person = {
+            name : 'park',
+            age : 20
+        };
+
+        person.name = 'kim';
+        console.log(person);
+
+        //안되는 코드 (객체 자체를 변경하는 행위)
+        person = {
+            name : 'lee',
+            age : 33
+        };
+
+    </script>
+    
+</body>
+</html>

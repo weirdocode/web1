@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        1. 정수 n을 전달받아 n의 약수들을 출력하고
+         약수의 개수를 리턴하는 함수
+         calcDivisor를 정의하세요.
+        2. 약수의 출력은 함수 내에서 이루어지고
+         개수를 리턴받아 출력하시면 되겠습니다.
+        */
+
+        function calcDivisor(number) {
+            var divisor = [];
+            for(var n=1; n<=number; n++) {
+                if(number % n === 0) {
+                    divisor.push(n);
+                }
+            }
+            console.log(`${number} 의 약소: ${divisor}`);
+            return divisor.length;
+        }
+
+        var divCount = calcDivisor(72);
+        console.log('약수의 개수: ' + divCount + '개');
+    </script>
+    
+</body>
+</html>
