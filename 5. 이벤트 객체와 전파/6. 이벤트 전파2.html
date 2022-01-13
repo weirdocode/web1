@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #fruits {
+            list-style: none;
+            padding: 0;
+        }
+
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        #fruits .active {
+            color: red;
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">apple</em></div>
+
+    <br>
+
+    # 새로운 과일 추가:
+    <input type="text" class="text-box">
+    <button id="add">추가</button>
+
+    <script>
+
+        const $fruits = document.getElementById('fruits');
+        const $msg = document.querySelector('.msg');
+
+        const $liList = [...$fruits.children];
+
+        //이벤트 핸들러 함수
+        function activate(e) {
+
+            //이벤트 발생 타겟이 특정 요소인지를 검증
+            if(!e.target.matches('#fruits > li')) {
+                // console.log('여기는 이벤트가 발생하면 안돼!!!');
+                return;
+            }
+
+            // console.log('여기는 이벤트가 발생해도 돼~');
+            for(let $target of $liList) {
+                /*
+                toggle메서드의 두번째 매개값으로 논리값을 전달할 수 있는데,
+                해당 논리값이 true로 판명나면
+                지정한 클래스를 추가하며,
+                false로 판명나면 지정한 클래스를 삭제합니다.
+                */
+                $target.classList.toggle('active', $target === e.target);
+            }
+            $msg.textContent = e.target.id;
+        }
+
+        //ul에 이벤트 등록
+        $fruits.addEventListener('click', activate);
+
+        //동적으로 과일 추가 기능
+        const $btn = document.getElementById('add');
+        const $textBox = document.querySelector('.text-box');
+
+        //버튼에 이벤트 등록
+        $btn.addEventListener('click', e => {
+            const $newLi = document.createElement('li'); //<li></li>
+            $newLi.textContent = $textBox.value; //<li>Orange</li>
+            $newLi.setAttribute('id', $textBox.value.toLowerCase());
+            $fruits.appendChild($newLi);
+            $textBox.value = '';
+
+            //새롭게 추가된 li에 이벤트를 부여하기 위해 배열에 추가
+            $liList.push($newLi);
+            // $newLi.addEventListener('click', activate);
+        });
+
+
+
+    </script>
+    
+</body>
+</html>

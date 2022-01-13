@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>아무곳이나 클릭하세요!</p>
+    <em class="message"></em>
+
+    <script>
+
+        const $em = document.querySelector('.message');
+
+        //문서 전체에 이벤트 핸들러 등록
+        document.addEventListener('click', (e) => {
+            console.log(e);
+            $em.textContent = `x: ${e.clientX}, y: ${e.clientY}`;
+        });
+
+    </script>
+    
+</body>
+</html>
