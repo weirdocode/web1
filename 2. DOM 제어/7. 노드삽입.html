@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grape</li>
+    </ul>
+
+    <script>
+
+        const $fruits = document.getElementById('fruits');
+
+        const $li = document.createElement('li');
+        $li.textContent = 'Mango';
+        
+        //두 번째 매개값으로 전달된 노드는 반드시
+        //insertBefore를 호출한 노드의 자식이어야 합니다.
+        $fruits.insertBefore($li, $fruits.lastElementChild);
+
+        //이미 배치된 DOM을 다시 한 번 insertBefore하면 노드가 이동함.
+        const $banana = document.querySelector('#fruits > li:nth-child(2)');
+        $fruits.insertBefore($banana, $fruits.firstElementChild);
+
+    </script>
+
+
+    
+</body>
+</html>
