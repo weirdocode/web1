@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        thead th, tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>이벤트 위임방식으로 변경해 보세요.</h2>
+
+    <table>
+        <thead>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>삭제</th>
+        </thead>
+        <tbody class="list">
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        const $list = document.querySelector('.list');
+        $list.addEventListener('click', function() {
+            //매개변수를 선언하지 않으면 이벤트 객체를
+            //event라는 이름으로 바로 사용이 가능합니다.
+            if(!event.target.matches('button')) {
+                return;
+            }
+            event.target.parentElement.parentElement.remove();
+        });
+    </script>
+
+
+</body>
+</html>

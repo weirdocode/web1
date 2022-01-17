@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            display: inline-block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h3>다중이벤트 처리</h3>
+    <div>
+        <ul>
+            <li><img src="./img/1.jpg" alt="1" width="100px"></li>
+            <li><img src="./img/2.jpg" alt="2" width="100px"></li>
+            <li><img src="./img/3.jpg" alt="3" width="100px"></li>
+            <li><img src="./img/4.jpg" alt="4" width="100px"></li>
+        </ul>
+        결과:
+        <div class="result">
+            <img src="./img/1.jpg" alt="결과" width="300px">
+        </div>
+    </div>
+
+    <script>
+
+        const $img = document.querySelector('.result img');
+        const $ul = document.querySelector('ul');
+        
+        $ul.addEventListener('click', function(e) {
+            if(!e.target.matches('ul > li > img')) {
+                return;
+            }
+            $img.src = e.target.src;
+        });
+        /*
+       const $imgList = document.querySelectorAll('ul li img');
+
+       for(let $ele of $imgList){
+           $ele.onclick = function(e) {
+               $img.src = e.target.src;
+           }
+       }
+       */
+    </script>
+    
+</body>
+</html>
