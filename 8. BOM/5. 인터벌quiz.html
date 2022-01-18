@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-banner1 {
+            background: linear-gradient(90deg,#0c151c 1.3125rem,transparent 1%) 50%,linear-gradient(#0c151c 1.3125rem,transparent 1%) 50%,#263747;
+            background-size: 1.5rem 1.5rem;
+            padding: 6rem 0;
+            color: #fff;
+            text-align: center;
+        }
+        .main-banner1 img {display: none; position:relative; animation: topIn .5s linear;}
+        @keyframes topIn {
+            from {
+                top: -50px; opacity: 0;
+            } to {
+                top: 0px; opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-banner1">
+        <img src="../6. QUIZ/img/1.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/2.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/3.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/4.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/1.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/2.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/3.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/4.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/1.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/2.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/3.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/4.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/1.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/2.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/3.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/4.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/1.jpg" alt="pic" width="200px">
+        <img src="../6. QUIZ/img/2.jpg" alt="pic" width="200px">
+    </div>
+
+    <script>
+
+        let inter;
+        let index = 0;
+
+        function changeImg() {
+            const $list = document.querySelector('.main-banner1');
+            $list.children[index].style.display = 'inline';
+            index++;
+            if(index === $list.children.length){
+                clearInterval(inter);
+            }
+        }
+
+        inter = setInterval(changeImg, 300);
+
+        setInterval(function() {
+            location.reload();
+        }, 10000);
+
+    </script>
+
+</body>
+</html>

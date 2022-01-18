@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./popup.js"></script>
+</head>
+<body>
+
+    <h2>메인 화면</h2>
+    
+    <script>
+
+        window.onload = function() { //윈도우 창이 열리자마자 실행할 내용.
+            //쿠키를 확인하여 쿠키가 없는 경우에는 팝업창을 실행.
+            if(!getCookie('popup')) {
+            window.open('popup.html', '메인팝업창', 'width=300, height=300, top=200, left=200');
+            }
+        }
+
+
+    </script>
+</body>
+</html>
