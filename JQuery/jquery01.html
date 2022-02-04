@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+    <input type="text" id="apple" value="사과">
+    <input type="text" class="melon" value="멜론">
+    <input type="hidden" value="망고">
+
+    <script>
+
+        //제이쿼리는 $('선택자')를 통해 요소를 취득하면, 반환으로 객체를 돌려줍니다.
+        //$('선택자')[0]로 태그를 취득할 수 있으며,
+        //결론적으로 $('선택자').함수()를 통해 모든 요소를 다루게 됩니다.
+        const $a1 = document.getElementById('apple');
+        const $a2 = $('#apple');
+        console.log($a1);
+        console.log($a2);
+
+        console.log('-----------------------------------------');
+
+        const b1 = document.querySelector('.melon').value;
+        const b2 = $('.melon').val();
+        console.log(b1);
+        console.log(b2);
+
+        console.log('-----------------------------------------');
+
+        const c1 = document.querySelector('input[type=hidden]').value;
+        const c2 = $('input[type=hidden]').val();
+        console.log(c1);
+        console.log(c2);
+
+
+    </script>
+
+</body>
+
+</html>

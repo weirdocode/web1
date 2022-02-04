@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="btn">이벤트 등록</button>
+    <input type="text" id="tag">
+
+    <script>
+
+        //스크립트 이벤트 등록
+        /*
+        window.onload = function() {
+            const $btn = document.getElementById('btn');
+            $btn.onclick = function() {
+                alert('이벤트 등록!');
+            }
+
+            const $tag = document.getElementById('tag');
+            $tag.onchange = function() {
+                alert('변경 이벤트 등록!');
+            }
+        }
+        */
+
+        //제이쿼리 이벤트 등록
+        //선택자 뒤에 on이 빠진 트리거를 작성하고
+        //실행할 함수를 매개변수로 전달.
+        $(document).ready(function() {
+            $('#btn').click(function() {
+                alert('이벤트 등록!');
+            });
+
+            $('#tag').keyup(function() {
+                alert('키 입력 이벤트 등록!');
+            });
+        });
+
+    </script>
+    
+</body>
+</html>

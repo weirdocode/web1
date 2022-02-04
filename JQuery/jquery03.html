@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <script>
+        //페이지가 모두 로딩된 후에 실행하는 함수.
+        //페이지 내에서 1번만 사용이 가능합니다.
+        /*
+        window.onload = function() {
+            const $btn = document.getElementById('btn');
+            $btn.onclick = function() {
+                alert('버튼 클릭됨!');
+            }
+        }
+        */
+
+        //JS의 윈도우 load이벤트 구문을 대체하는 문법
+        /*
+        $(window).on('load', function() {
+            const $btn = document.getElementById('btn');
+            $btn.onclick = function() {
+                alert('버튼 클릭됨!');
+            }
+        });
+        */
+
+        //JS의 윈도우 load 이벤트를 대체하는 문법 2
+        //페이지에서 제이쿼리 문법을 시작할 때 주로 많이 사용합니다.
+        //여러 번 사용이 가능합니다.
+        $(document).ready(function() {
+            $('#btn').click(function() {
+                alert('제이쿼리의 load');
+            });
+        });
+
+        //제이쿼리를 시작할 때 사용하는 또다른 문법 (제일 간단함.)
+        $(function() {
+            //제이쿼리 문법을 블라블라~~~
+        });
+
+
+    </script>
+
+    <button type="button" id="btn">이벤트 등록</button>
+
+</body>
+</html>

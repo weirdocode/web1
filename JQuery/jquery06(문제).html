@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .center {
+            text-align: center;
+        }
+
+        .content {
+            border: 1px solid #777;
+        }
+
+        .content,
+        .content .left,
+        .content .right {
+            width: 50%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+
+        .content .right,
+        .content .left {
+            float: left;
+        }
+
+        .left .inner,
+        .right .inner {
+            border: 1px solid #777;
+            height: 300px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .memo {
+            width: 100%;
+            height: 200px;
+            box-sizing: border-box;
+            resize: none;
+        }
+    </style>
+
+    <script src="lib/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    
+    <header>
+        <div class="center">
+            <h2>토글형태 활용하기</h2>
+            <button id="btn1">어둡게 보기</button>
+            <button id="btn2" class="name">이름 보기</button>
+            <hr>
+        </div>
+    </header>
+
+    <section>
+        <div class="content clearfix">
+            <div class="left">
+                <div class="inner"><img src="./img/1.jpg" alt="pic"></div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                    <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다.</p>
+                    <a href="https://www.naver.com">네이버</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        //jQuery를 활용하여 어둡게보기, 이름보기 기능을
+        //구현해 주세요.
+        //스타일: css(), 텍스트 -> html()
+
+        $(document).ready(function() {
+            $('#btn1').click(function() {
+                $('#btn1').toggleClass('dark');
+                // if($('#btn1').hasClass('dark'))
+                if($('#btn1').attr('class') === 'dark') {
+                    $('body').css('background', 'black');
+
+                    // $('p, h2, a').css('color', 'white');
+                    $('p, h2, a').each(function(index, item) {
+                        //each는 일반적인 반복 함수입니다.
+                        //앞의 선택자로 지목된 태그를 배열 형태로 받아와서
+                        //index와 item으로 나누어서 함수 내에서 사용할 수 있게 합니다.
+                        console.log(item);
+                        $(item).css('color', 'white');
+                    });
+
+                    $(this).html('밝게 보기');
+                } else { //class이름이 dark가 아닌 경우
+                    $('body').css('background', 'white');
+                    $('p, h2, a').css('color', 'black');
+                    $(this).html('어둡게 보기');
+                }
+            });
+        });
+
+        $('#btn2').click(function() {
+            if($('#btn2').hasClass('name')) {
+                $('.inner > p').html('홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript');
+                $('.inner > a').css('display', 'none');
+                $(this).html('내용보기');
+                $(this).attr('class', 'cont');
+            } else {
+                $('.inner > p').html('자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다.');
+                $('.inner > a').css('display', 'block');
+                $(this).html('이름보기');
+                $(this).attr('class', 'name');
+            }
+        });
+
+
+    </script>
+
+    
+</body>
+</html>

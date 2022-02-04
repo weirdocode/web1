@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="test1" readonly>
+    <div id="test2">테스트2</div>
+    <div id="test3">테스트3</div>
+
+    <img src="#" class='test4'>
+
+    <button id="btn" class="btn btn-default">클래스조작</button>
+    
+    <script>
+
+        const a1 = document.getElementById('test1').getAttribute('id');
+        const a2 = $('#test1').attr('id'); //attr('값')은 요소의 속성을 확인
+        console.log(a1);
+        console.log(a2);
+
+        console.log('---------------------------------------------');
+
+        // document.getElementById('test1').setAttribute('id', 'melon');
+        $('#test1').attr('id', 'melon'); //제이쿼리의 속성 변경
+
+        $('.test4').attr({
+            src: 'profile.png',
+            width: 100,
+            height: 100,
+            alt: 'hello world!'
+        });
+
+        console.log('---------------------------------------------');
+
+        document.getElementById('test2').innerHTML = '<a href="#">kkk</a>';
+        $('#test2').html('안녕하세요~'); //제이쿼리의 innerHTML 함수
+
+        console.log('---------------------------------------------');
+
+        document.getElementById('test3').style.background='red';
+        $('#test3').css('background', 'blue'); //제이쿼리의 css 변경 함수
+
+        console.log('---------------------------------------------');
+
+        //클래스 추가
+        document.getElementById('btn').classList.add('myBtn');
+        $('.btn').addClass('myBtn2');
+
+        //클래스 삭제
+        document.getElementById('btn').classList.remove('myBtn');
+        $('.btn').removeClass('myBtn2');
+
+        //토글(존재한다면 삭제, 존재하지 않는다면 추가)
+        $('.btn').toggleClass('btn');
+
+
+    </script>
+
+</body>
+</html>
