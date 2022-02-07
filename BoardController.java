@@ -1,126 +1,149 @@
-package kr.oco.jsp.board.controller;
+package com.spring.mvc.board.controller;
 
-import java.io.IOException;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kr.oco.jsp.board.service.ContentService;
-import kr.oco.jsp.board.service.DeleteService;
-import kr.oco.jsp.board.service.GetListService;
-import kr.oco.jsp.board.service.IBoardService;
-import kr.oco.jsp.board.service.ListService;
-import kr.oco.jsp.board.service.ModifyService;
-import kr.oco.jsp.board.service.RegistService;
-import kr.oco.jsp.board.service.SearchService;
-import kr.oco.jsp.board.service.UpdateService;
+import com.spring.mvc.board.commons.PageCreator;
+import com.spring.mvc.board.commons.PageVO;
+import com.spring.mvc.board.commons.SearchVO;
+import com.spring.mvc.board.model.BoardVO;
+import com.spring.mvc.board.service.IBoardService;
 
+@Controller
+@RequestMapping("/board")
+public class BoardController {
 
-@WebServlet("*.board")
-public class BoardController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    
-	private RequestDispatcher dp;
-	private IBoardService sv;
-    
-    public BoardController() {
-        super();
-    }
-
+	@Autowired
+	private IBoardService service;
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest(request, response);
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest(request, response);
-		request.setCharacterEncoding("utf-8");
-	}
-	
-	protected void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uri = request.getRequestURI();
-		uri = uri.substring(request.getContextPath().length()+1, uri.lastIndexOf("."));
-		System.out.println(uri);
+	//검색 처리 이후 게시글 목록 불러오기 요청
+	@GetMapping("/list")
+	public String list(SearchVO search, Model model) {
+		System.out.println("/board/list: GET");
+		System.out.println("페이지 번호: " + search.getPage());
+		System.out.println("검색어: " + search.getKeyword());
+		System.out.println("검색 조건: " + search.getCondition());
 		
-		switch (uri) {
-		case "list":
-			System.out.println("게시판 리스트로 이동");
-			sv = new GetListService();
-			sv.execute(request, response);
-			dp = request.getRequestDispatcher("bbs/bbs.jsp");
-			dp.forward(request, response);
-		break;
 		
-			
-		case "write" : 
-				System.out.println("게시판 글쓰기로 이동");
-				response.sendRedirect("bbs/bbs_write.jsp");
-				
-			break;
-			
-		case "regist":
-			System.out.println("글 등록 요청이 들어옴");
-			sv = new RegistService();
-			System.out.println("registService");
-			sv.execute(request, response);
-			response.sendRedirect("/SemiProject/list.board");
-			System.out.println("글 등록 완료");
-			break;
-			
-		case "content":
-			System.out.println("글 상세보기 요청이 들어옴");
-			sv = new ContentService();
-			sv.execute(request, response);
-			System.out.println("글 상세보기 sv 동작 확인");
-			dp = request.getRequestDispatcher("bbs/bbs_content.jsp");
-			dp.forward(request, response);
-			System.out.println("글 상세보기 dp 동작 확인!");
-			break;
-			
-		case "modify":
-			System.out.println("글 수정 페이지 이동 요청 들어옴");
-			sv = new ModifyService();
-			sv.execute(request, response);
-			dp = request.getRequestDispatcher("bbs/bbs_modify.jsp");
-			dp.forward(request, response);
-			break;
-			
-		case "update":
-			System.out.println("글 수정 요청이 들어옴");
-			sv = new UpdateService();
-			System.out.println("sv 확인");
-			sv.execute(request, response);
-			response.sendRedirect("/SemiProject/content.board?bId=" + request.getParameter("bId"));
-			System.out.println("수정 완료!");
-			break;
-			
-		case "delete":
-			System.out.println("글 삭제 요청이 들어옴");
-			sv = new DeleteService();
-			sv.execute(request, response);
-			response.sendRedirect("/SemiProject");
-			break;
-			
-		case "search":
-			System.out.println("제목 검색 요청이 들어옴");
-			sv = new SearchService();
-			sv.execute(request, response);
-			if(request.getAttribute("boardList") != null) {
-				dp = request.getRequestDispatcher("bbs/bbs.jsp");
-				dp.forward(request, response);
-			}
-			break;	
-		default:
-			break;
-		}
-			
-		}
+		
+		List<BoardVO> list = service.getArticleList(search);
+		
+		PageCreator pc = new PageCreator();
+		pc.setPaging(search);
+		pc.setArticleTotalCount(service.countArticles(search));
+		
+		model.addAttribute("articles", list);
+		model.addAttribute("pc", pc);
+		
+		
+		return "board/list";
 	}
+	
+	
+	/*
+	//페이징 처리 이후 게시글 목록 불러오기 요청
+	@GetMapping("/list")
+	public String list(PageVO paging, Model model) {
+		System.out.println("/board/list: GET");
+		System.out.println("페이지 번호: " + paging.getPage());
+		
+		List<BoardVO> list = service.getArticleList(paging);
+		System.out.println("페이징 처리 후 게시물의 수: " + list.size());
+		
+		PageCreator pc = new PageCreator();
+		pc.setPaging(paging);
+		pc.setArticleTotalCount(service.countArticles());
+		
+		System.out.println(pc);
+		
+		model.addAttribute("articles", list);
+		model.addAttribute("pc", pc);
+		
+		return "board/list";
+	}
+	*/
+	
+	/*
+	//게시글 목록 불러오기 요청
+	@GetMapping("/list")
+	public String list(Model model) {
+		System.out.println("/board/list: GET");
+		model.addAttribute("articles", service.getArticleList());
+		
+		return "board/list";
+	}
+	*/
+	
+	//글쓰기 페이지로 이동 요청
+	@GetMapping("/write")
+	public void write() {
+		System.out.println("/board/write: GET");
+	}
+	
+	//게시글 DB 등록 요청
+	@PostMapping("/write")
+	public String write(BoardVO article) {
+		System.out.println("/board/write: POST");
+		service.insert(article);
+		
+		return "redirect:/board/list";
+	}
+	
+	//게시글 상세보기 요청
+	@GetMapping("/content/{boardNo}")
+	//@PathVariable은 URL 경로에 변수를 포함시켜 주는 방식
+	//null이나 공백이 들어갈 수 있는 파라미터라면 적용하지 않는 것을 추천.
+	//파라미터값에 .이 포함되어 있으면 .뒤의 값은 잘립니다.
+	//{} 안에 변수명을 지어주시고, @PathVariable 괄호 안에 영역을 지목해서
+	//값을 받아옵니다.
+	public String content(@PathVariable int boardNo, Model model,
+						  @ModelAttribute("p") PageVO paging) {
+		System.out.println("/board/content: GET");
+		System.out.println("요청된 글 번호: " + boardNo);
+		model.addAttribute("article", service.getArticle(boardNo));
+		return "board/content";
+	}
+	
+	//게시글 수정 화면 요청
+	@GetMapping("/modify")
+	public void modify(int boardNo, Model model, 
+						@ModelAttribute("p") PageVO paging) {
+		System.out.println("/board/modify: GET");
+		model.addAttribute("article", service.getArticle(boardNo));
+	}
+	
+	//게시글 수정 처리 요청
+	@PostMapping("/modify")
+	public String modify(BoardVO article) {
+		System.out.println("/board/modify: POST");
+		service.update(article);
+		
+		return "redirect:/board/content/" + article.getBoardNo();
+	}
+	
+	//게시글 삭제 처리 요청
+	@PostMapping("/delete")
+	public String remove(int boardNo, RedirectAttributes ra) {
+		System.out.println("/board/delete: POST");
+		service.delete(boardNo);
+		ra.addFlashAttribute("msg", "delSuccess");
+		
+		return "redirect:/board/list";
+	}
+	
+	
+	
+}
 
 
 

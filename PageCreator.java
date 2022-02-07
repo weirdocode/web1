@@ -1,76 +1,64 @@
-package kr.oco.jsp.board.model;
+package com.spring.mvc.board.commons;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+//페이지 알고리즘에 의해 이전, 다음 버튼 및 페이지 버튼 개수 및 번호를 관장할 객체
+@Getter
+@Setter
+@ToString
 public class PageCreator {
-	//페이지 번호와 한 페이지당 들어갈 게시물의 개수를 갖고 있는 객체
-	private PageVO paging;
-	private int articleTotalCount; //총 게시물의 개수
-	private int beginPage; //시작 페이지 번호
+	
+	private PageVO paging; // 사용자가 선택한 페이지 정보를 갖고있는 객체
+	private int articleTotalCount; //총 게시물의 수
+	private int beginPage; // 시작페이지 번호
 	private int endPage; //끝 페이지 번호
-	private boolean prev; //이전 버튼 활성화 여부
-	private boolean next; //다음 버튼 활성화 여부
+	private boolean prev; //이전 버튼
+	private boolean next; //다음 버튼
 	
 	//한 화면에 보여질 페이지 버튼 수
-	private final int displayBtn = 10;
+	private final int displayPageNum = 10;
 	
-	//페이징 알고리즘을 수행할 메서드 선언.
+	//페이징 알고리즘을 수행할 메서드 선언
 	private void calcDataOfPage() {
 		
-		//보정 전 끝 페이지 구하기
-		endPage = (int) (Math.ceil(paging.getPage() / (double)displayBtn) * displayBtn);
+		endPage = (int) (Math.ceil(paging.getPage() / (double)displayPageNum) * displayPageNum);
 		
-		//시작 페이지 번호 구하기
-		beginPage = (endPage - displayBtn) + 1;
+		//시작페이지 번호 계산
+		beginPage = (endPage - displayPageNum) + 1;
 		
-		//현재 시작 페이지가 1이라면 이전 버튼 비활성화
+		//이전버튼 활성화, 비활성화 여부
 		prev = (beginPage == 1) ? false : true;
 		
-		//마지막 페이지인지 여부 확인 후 다음 버튼 비활성 판단
-		next = (articleTotalCount <= (endPage * paging.getCountPerPage())) ? false : true;
+		//다음 버튼 활성, 비활성 여부
+		next = (endPage * paging.getCountPerPage()) >= articleTotalCount ? false : true;		
 		
-		//다음 버튼 비활성화라면 끝 페이지 보정하기
+		//끝 페이지 보정
 		if(!next) {
-			endPage = (int) Math.ceil(articleTotalCount / (double) paging.getCountPerPage());
-		}
-		
+			endPage = (int) Math.ceil(articleTotalCount / (double)paging.getCountPerPage());
+		}		
 	}
 	
-	
-	public PageVO getPaging() {
-		return paging;
-	}
-	public void setPaging(PageVO paging) {
-		this.paging = paging;
-	}
-	public int getArticleTotalCount() {
-		return articleTotalCount;
-	}
 	public void setArticleTotalCount(int articleTotalCount) {
 		this.articleTotalCount = articleTotalCount;
-		calcDataOfPage(); //Service클래스에게 총 게시물 수 받은 즉시 알고리즘 가동.
+		calcDataOfPage();
 	}
-	public int getBeginPage() {
-		return beginPage;
-	}
-	public void setBeginPage(int beginPage) {
-		this.beginPage = beginPage;
-	}
-	public int getEndPage() {
-		return endPage;
-	}
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
-	public boolean isPrev() {
-		return prev;
-	}
-	public void setPrev(boolean prev) {
-		this.prev = prev;
-	}
-	public boolean isNext() {
-		return next;
-	}
-	public void setNext(boolean next) {
-		this.next = next;
-	}
-	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
